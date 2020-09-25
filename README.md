@@ -1,9 +1,11 @@
 # Bolig-site scrape og analyse
 
-Foobar is a Python library for dealing with word pluralization.
+I dette projekt har jeg webscrapet 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
+Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et Dashboard, der "afspiller" de 3 måneders indsamlede data.
+
+Formålet med dette repository er at tydeliggøre mine tekniske egenskaber.
 
 ## Indhold
-
 1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py)
 2. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 3. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
@@ -12,26 +14,15 @@ Foobar is a Python library for dealing with word pluralization.
 
 Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+## Summary findings
 
-```bash
-pip install foobar
-```
-
-## Findings
-
-```python
-import foobar
+LAV GIFS og BILLEDER her.
 
 foobar.pluralize('word') # returns 'words'
 foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Libraries brugt
+* yoyo
+* nono
