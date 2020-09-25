@@ -6,7 +6,7 @@ Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Deref
 Formålet med dette repository er at tydeliggøre mine tekniske egenskaber.
 
 ## Indhold
-1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){"_blank"}
+1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py?target=_blank)
 2. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 3. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 4. [Plotly Dash dashboard BACKEND](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
