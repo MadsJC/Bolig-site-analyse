@@ -18,10 +18,6 @@ Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bol
 
 LAV GIFS og BILLEDER her.
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
 ## Libraries brugt
 * yoyo
