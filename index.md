@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+# Bolig-site scrape og analyse
 
-You can use the [editor on GitHub](https://github.com/MadsJC/Bolig-site-analyse/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+I dette projekt har jeg webscrapet 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
+Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et Dashboard, der "afspiller" de 3 måneders indsamlede data.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Formålet med dette repository er at tydeliggøre mine tekniske egenskaber.
 
-### Markdown
+## Indhold
+1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py)
+2. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
+3. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
+4. [Plotly Dash dashboard BACKEND](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
+5. [Live dashboard](https://mc-livebolig.herokuapp.com/)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 
-```markdown
-Syntax highlighted code block
+## Summary findings
 
-# Header 1
-## Header 2
-### Header 3
+LAV GIFS og BILLEDER her.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## Libraries brugt
 
-**Bold** and _Italic_ and `Code` text
+### Generelt:
+* [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/)
+* [Numpy](https://numpy.org/doc/stable/reference/)
 
-[Link](url) and ![Image](src)
-```
+### Webscrape:
+* [Selenium](https://selenium-python.readthedocs.io/)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Visualisering:
+* [Matplotlib](https://matplotlib.org/contents.html)
+* [Seaborn](https://seaborn.pydata.org/)
+* [Plotly](https://plotly.com/python/)
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MadsJC/Bolig-site-analyse/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Dashboard
+* [Plotly Dash](https://dash.plotly.com/)
+* [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/)
