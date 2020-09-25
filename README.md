@@ -23,16 +23,16 @@ LAV GIFS og BILLEDER her.
 
 ### Generelt:
 * [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/)
-* Numpy
+* [Numpy] (https://numpy.org/doc/stable/reference/)
 
 ### Webscrape:
-* Selenium
+* [Selenium] (https://selenium-python.readthedocs.io/)
 
 ### Visualisering:
-* Matplotlib
-* Seaborn
-* Plotly
+* [Matplotlib] (https://matplotlib.org/contents.html)
+* [Seaborn] (https://seaborn.pydata.org/)
+* [Plotly] (https://plotly.com/python/)
 
 ### Dashboard
-* Plotly Dash
-* Dash Bootstrap Components
+* [Plotly Dash] (https://dash.plotly.com/)
+* [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/)
