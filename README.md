@@ -20,5 +20,19 @@ LAV GIFS og BILLEDER her.
 
 
 ## Libraries brugt
-* yoyo
-* nono
+
+### Generelt:
+* [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/)
+* Numpy
+
+### Webscrape:
+* Selenium
+
+### Visualisering:
+* Matplotlib
+* Seaborn
+* Plotly
+
+### Dashboard
+* Plotly Dash
+* Dash Bootstrap Components
