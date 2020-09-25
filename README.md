@@ -7,7 +7,7 @@ Foobar is a Python library for dealing with word pluralization.
 1. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 2. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 3. [Plotly Dash dashboard BACKEND](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
-3.1 [Live dashboard](https://mc-livebolig.herokuapp.com/)
+4. [Live dashboard](https://mc-livebolig.herokuapp.com/)
 
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
