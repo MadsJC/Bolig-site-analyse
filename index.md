@@ -5,14 +5,12 @@ Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Deref
 
 Formålet med dette repository er at tydeliggøre mine tekniske egenskaber.
 
-testtest111
-
 ## Indhold
-1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
-2. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-3. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-4. [Plotly Dash dashboard BACKEND](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-5. [Live dashboard](https://mc-livebolig.herokuapp.com/){:target="_blank"}
+1. [Webscrape script (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
+2. [Data Clean (Jupyter Notebook)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
+3. [Exploratory Data Analysis (Jupyter Notebook)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
+4. [Plotly Dash dashboard BACKEND (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
+5. [Live dashboard (Deployed på Heroku)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
 
 Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 
@@ -23,7 +21,7 @@ LAV GIFS og BILLEDER her.
 
 ## Libraries brugt
 
-### Generelt:
+#### Generelt:
 * [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/){:target="_blank"}
 * [Numpy](https://numpy.org/doc/stable/reference/){:target="_blank"}
 
