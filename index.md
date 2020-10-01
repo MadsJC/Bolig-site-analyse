@@ -3,9 +3,8 @@
 I dette projekt har jeg webscrapet 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
 Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et Dashboard, der "afspiller" de 3 måneders indsamlede data.
 
-Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber.
+Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data der ikke er blevet undersøgt til bunds.
 
-De forskellige trins sourcecode kan findes igennem links herunder:
 
 ## Indhold
 1. [Webscrape script (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
