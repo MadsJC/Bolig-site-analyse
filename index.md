@@ -23,18 +23,18 @@ LAV GIFS og BILLEDER her.
 
 ## Libraries brugt
 
-#### Generelt:
+###### Generelt
 * [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/){:target="_blank"}
 * [Numpy](https://numpy.org/doc/stable/reference/){:target="_blank"}
 
-#### Webscrape:
+###### Webscrape
 * [Selenium](https://selenium-python.readthedocs.io/){:target="_blank"}
 
-#### Visualisering:
+###### Visualiseringer
 * [Matplotlib](https://matplotlib.org/contents.html){:target="_blank"}
 * [Seaborn](https://seaborn.pydata.org/){:target="_blank"}
 * [Plotly](https://plotly.com/python/){:target="_blank"}
 
-#### Dashboard
+###### Dashboard
 * [Plotly Dash](https://dash.plotly.com/){:target="_blank"}
 * [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/){:target="_blank"}
