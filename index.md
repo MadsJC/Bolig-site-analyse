@@ -12,7 +12,7 @@ Formålet med dette repository er kort at præsentere et udsnit af mine tekniske
 2. [Data Clean (Jupyter Notebook)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 3. [Exploratory Data Analysis (Jupyter Notebook)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 4. [Plotly Dash dashboard BACKEND (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-5. [Live dashboard (Python - Plotlty Dash)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
+5. [Live dashboard (Hosted ved Heroku)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
 
 Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
 
