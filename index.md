@@ -15,6 +15,8 @@ Formålet med dette repository er kort at præsentere et udsnit af mine tekniske
 5. [Live dashboard (Hosted ved Heroku)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
 
 
+[TESt script (Python)](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb){:target="_blank"}
+
 ## Summary findings
 
 LAV GIFS og BILLEDER her.
