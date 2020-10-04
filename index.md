@@ -21,7 +21,7 @@ Formålet med dette repository er kort at præsentere et udsnit af mine tekniske
 
 LAV GIFS og BILLEDER her.
 
-[Text test](https://i.imgur.com/UKbmXcn.png)
+[](https://i.imgur.com/UKbmXcn.png)
 
 
 ## Libraries brugt
