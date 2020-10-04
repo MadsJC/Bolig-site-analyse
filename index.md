@@ -21,7 +21,10 @@ Formålet med dette repository er kort at præsentere et udsnit af mine tekniske
 
 LAV GIFS og BILLEDER her.
 
-[](https://i.imgur.com/UKbmXcn.png)
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+![Alt Text](https://i.imgur.com/UKbmXcn.png)
+
 
 
 ## Libraries brugt
