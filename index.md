@@ -23,11 +23,8 @@ LAV GIFS og BILLEDER her.
 
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
-![Alt Text](https://i.imgur.com/UKbmXcn.png width="100" height="100")
+<img src="https://i.imgur.com/UKbmXcn.png" width="200" height="100">
 
-<img src="https://i.imgur.com/UKbmXcn.png" width="100" height="100">
-
-<img src="https://i.imgur.com/UKbmXcn.png" width="100" height="100" href="https://www.qries.com/">
 
 
 ## Libraries brugt
