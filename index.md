@@ -23,7 +23,7 @@ LAV GIFS og BILLEDER her.
 
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
-![Alt Text](https://i.imgur.com/UKbmXcn.png){:target="https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py"}
+![Alt Text](https://i.imgur.com/UKbmXcn.png width="100" height="100" link="www.dr.dk")
 
 
 
