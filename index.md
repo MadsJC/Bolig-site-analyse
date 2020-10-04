@@ -23,7 +23,7 @@ LAV GIFS og BILLEDER her.
 
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
-![Alt Text](https://i.imgur.com/UKbmXcn.png width="100" height="100" :target="www.dr.dk")
+![Alt Text](https://i.imgur.com/UKbmXcn.png width="100" height="100")
 
 
 
