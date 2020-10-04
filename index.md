@@ -2,7 +2,7 @@
 
 ##### Introduktion
 I dette projekt har jeg webscrapet lidt over 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
-Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et [Dashboard](https://mc-livebolig.herokuapp.com/), der "afspiller" de 3 måneders indsamlede data.
+Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et [Dashboard](https://mc-livebolig.herokuapp.com/), der "simulerer" hvordan et live dashboard for de 3 måneders indsamlede data kunne afspilles.
 
 ##### Formål
 Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data, der ikke er blevet undersøgt til bunds.
