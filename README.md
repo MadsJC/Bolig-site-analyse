@@ -1,38 +1,44 @@
 # Bolig-site scrape og analyse
 
-I dette projekt har jeg webscrapet 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
-Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et Dashboard, der "afspiller" de 3 måneders indsamlede data.
+##### Introduktion
+I dette projekt har jeg webscrapet lidt over 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
+Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et [Dashboard](https://mc-livebolig.herokuapp.com/), der "simulerer" hvordan et live dashboard for de 3 måneders indsamlede data kunne afspilles.
 
-Formålet med dette repository er at tydeliggøre mine tekniske egenskaber.
+##### Formål
+Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data, der ikke er blevet undersøgt til bunds.
 
 ## Indhold
-1. [Webscrape app](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py)
-2. [Data Clean](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
-3. [Exploratory Data Analysis](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
-4. [Plotly Dash dashboard BACKEND](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
-5. [Live dashboard](https://mc-livebolig.herokuapp.com/)
+1. [Webscrape script (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
+2. [Data Clean (Jupyter Notebook)](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
+3. [Exploratory Data Analysis - EDA (Jupyter Notebook)](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb){:target="_blank"}
+4. [Live dashboard (Hosted ved Heroku)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
+5. [Live dashboard BACKEND (Python)](https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live){:target="_blank"}
 
-Alternativt link til [Data Clean](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb)
 
 ## Summary findings
 
 LAV GIFS og BILLEDER her.
 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+<img src="https://i.imgur.com/UKbmXcn.png" width="200" height="100">
+
+
 
 ## Libraries brugt
 
-### Generelt:
-* [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/)
-* [Numpy](https://numpy.org/doc/stable/reference/)
+###### Generelt
+* [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/){:target="_blank"}
+* [Numpy](https://numpy.org/doc/stable/reference/){:target="_blank"}
 
-### Webscrape:
-* [Selenium](https://selenium-python.readthedocs.io/)
+###### Webscrape
+* [Selenium](https://selenium-python.readthedocs.io/){:target="_blank"}
 
-### Visualisering:
-* [Matplotlib](https://matplotlib.org/contents.html)
-* [Seaborn](https://seaborn.pydata.org/)
-* [Plotly](https://plotly.com/python/)
+###### Visualiseringer
+* [Matplotlib](https://matplotlib.org/contents.html){:target="_blank"}
+* [Seaborn](https://seaborn.pydata.org/){:target="_blank"}
+* [Plotly](https://plotly.com/python/){:target="_blank"}
 
-### Dashboard
-* [Plotly Dash](https://dash.plotly.com/)
-* [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/)
+###### Dashboard
+* [Plotly Dash](https://dash.plotly.com/){:target="_blank"}
+* [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/){:target="_blank"}
