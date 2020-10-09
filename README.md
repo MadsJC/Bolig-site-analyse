@@ -1,27 +1,31 @@
 # Bolig-site scrape og analyse
 
-##### Introduktion
-I dette projekt har jeg webscrapet lidt over 3 måneders data fra en populær dansk bolig-hjemmeside, der forbinder boligudlejere og boligsøgere.
-Efter succesfuld websrape har jeg cleanet dataen og foretaget en kort EDA. Derefter har jeg vha. Plotly Dash lavet et [Dashboard](https://mc-livebolig.herokuapp.com/), der "simulerer" hvordan et live dashboard for de 3 måneders indsamlede data kunne afspilles.
-
 ##### Formål
 Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data, der ikke er blevet undersøgt til bunds.
 
+Følg alle trin ved at følge linkene herunder.
+
 ## Indhold
-1. [Webscrape script (Python)](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
-2. [Data Clean (Jupyter Notebook)](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-3. [Exploratory Data Analysis - EDA (Jupyter Notebook)](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb){:target="_blank"}
-4. [Live dashboard (Hosted ved Heroku)](https://mc-livebolig.herokuapp.com/){:target="_blank"}
-5. [Live dashboard BACKEND (Python)](https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live){:target="_blank"}
+1. [**Webscrape script (Python)**](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
+2. [**Data Clean (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
+3. [**Exploratory Data Analysis - EDA (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb){:target="_blank"}
+4. [**Live dashboard (Hosted ved Heroku)**](https://mc-livebolig.herokuapp.com/){:target="_blank"}
+5. [**Live dashboard BACKEND (Python)**](https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live){:target="_blank"}
 
 
 ## Summary findings
 
-LAV GIFS og BILLEDER her.
+<img src="https://i.imgur.com/SEpCJ0l.png" width="500" height="250">
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+<img src="https://i.imgur.com/UKbmXcn.png" width="500" height="250">
 
-<img src="https://i.imgur.com/UKbmXcn.png" width="200" height="100">
+<img src="https://i.imgur.com/yqPbRAR.png" width="500" height="250">
+
+<img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
+
+
+<iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
+        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="450" width="800" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 
