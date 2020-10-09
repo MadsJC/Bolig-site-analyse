@@ -27,10 +27,6 @@ bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SPACELAB])
 
 
-#                 ,meta_tags=[
-#     {"name": "viewport", "content": "width=device-width, initial-scale=1"}])
-
-
 app.title = 'Live bolig dashboard'
 server = app.server
 
@@ -61,19 +57,6 @@ def app_layout():
 
         html.Div(id='table_row'),
 
-        # dbc.Card([
-        #     dbc.CardBody([
-        #         dbc.Row([
-        #             html.H3('Seneste 5 boliger oprettet'),
-        #         ]),
-        #         dbc.Row([
-        #             html.Div(id='info_table')
-        #         ])
-        #     ])
-        # ]),
-
-
-
         html.P([], style={'padding': '15px'}),
 
         html.Div(['Created by Mads Jepsen Claussen'],
@@ -103,8 +86,6 @@ def app_layout():
         ], id="modal", size='l', centered=True),
 
     ], style={'backgroundColor': '#CAD2D3', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
-
-#    ], style={'backgroundColor': '#F7F8FC', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
 
 
 app.layout = app_layout
