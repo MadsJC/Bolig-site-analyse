@@ -3,6 +3,8 @@
 ##### Formål
 Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data, der ikke er blevet undersøgt til bunds.
 
+Følg alle trin ved at følge linkene herunder.
+
 ## Indhold
 1. [**Webscrape script (Python)**](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
 2. [**Data Clean (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
