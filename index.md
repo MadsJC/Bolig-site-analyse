@@ -14,13 +14,22 @@ Følg alle trin ved at følge linkene herunder.
 
 
 ## Summary findings
-<img src="https://i.imgur.com/SEpCJ0l.png" width="400" height="200">
 
-<img src="https://i.imgur.com/UKbmXcn.png" width="400" height="200">
+<img src="https://i.imgur.com/SEpCJ0l.png" width="500" height="250">
 
-        
+<img src="https://i.imgur.com/UKbmXcn.png" width="500" height="250">
+
+<img src="https://i.imgur.com/yqPbRAR.png" width="500" height="250">
+
+<img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
+
+
 <iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
-        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="500" width="1000" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="450" width="800" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        
+        
+https://i.imgur.com/yqPbRAR.png
+
 
 ## Libraries brugt
 
