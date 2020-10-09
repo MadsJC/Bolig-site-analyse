@@ -43,8 +43,6 @@ def total_timeseries(df, color_maps):
                 autosize=True,
                 height=250,
                 barmode='stack',
-                # paper_bgcolor='#CAD2D3',
-                # plot_bgcolor='#CAD2D3',
                 title='Antal oprettede boliger (seneste 20 dage)',
                 transition={
                     'duration': 500,
@@ -150,16 +148,12 @@ def scatter_månedlig_leje_kvadratmeter(df, color_maps):
                 showlegend=True,
                 autosize=True,
                 height=400,
-                # paper_bgcolor='#CAD2D3',
-                # plot_bgcolor='#CAD2D3',
                 title=df['oprettelsesdato'].max().strftime('%d-%m-%Y'),
                 transition={
                     'duration': 500,
                     'easing': 'cubic-in-out'},
                 margin={'l': 50, 'r': 1, 't': 40, 'b': 50})}
 
-
-# https://plotly.com/python/scattermapbox/
 
 def map_today(df_map, color_maps):
     mapbox_access_token = 'pk.eyJ1IjoibWFkc2pjIiwiYSI6ImNrZWN3YzF6bjAwcDUyc3Q1OWc1amJhaDEifQ.MTO6xHwzu-9FJopzujIHlw'
