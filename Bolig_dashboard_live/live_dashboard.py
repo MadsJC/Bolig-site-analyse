@@ -17,12 +17,18 @@ import pandas as pd
 import numpy as np
 from datetime import timedelta
 
+color_maps = {'Lejlighed': '#939BFC', 'Rækkehus': '#F58677',
+              'Villa': '#68DBB6', 'Værelse': '#ffd700'}
+
+bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 
 ########
 # Dash setting:
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED],
-                meta_tags=[
-    {"name": "viewport", "content": "width=device-width, initial-scale=1"}])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SPACELAB])
+
+
+#                 ,meta_tags=[
+#     {"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 
 
 app.title = 'Live bolig dashboard'
@@ -30,7 +36,6 @@ server = app.server
 
 
 def app_layout():
-    bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 
     print()
     print('------------- Running app_layout() ---------------')
@@ -46,9 +51,7 @@ def app_layout():
 
         html.P([], style={'padding': '5px'}),
 
-        dbc.Col([
-            html.Div(id='map_today'),
-        ], width=3),
+        html.Div(id='map_today'),
 
         html.P([], style={'padding': '5px'}),
 
@@ -56,17 +59,18 @@ def app_layout():
 
         html.P([], style={'padding': '5px'}),
 
-        dbc.Card([
-            dbc.CardBody([
-                dbc.Row([
-                    html.H3('Seneste 5 boliger oprettet'),
-                ]),
-                dbc.Row([
-                    html.Div(id='info_table')
-                ])
+        html.Div(id='table_row'),
 
-            ])
-        ]),
+        # dbc.Card([
+        #     dbc.CardBody([
+        #         dbc.Row([
+        #             html.H3('Seneste 5 boliger oprettet'),
+        #         ]),
+        #         dbc.Row([
+        #             html.Div(id='info_table')
+        #         ])
+        #     ])
+        # ]),
 
 
 
@@ -80,10 +84,8 @@ def app_layout():
         # Interval-Settings:
         dcc.Interval(
             id='interval-component',
-            # interval=(1000 * 3600) / 2,  # 0,5 time
-            # interval=(1000 * 3600) / 60,  # 1 minut
-            interval=2000,  # 2 sekunder
-            n_intervals=100),
+            interval=4000,  # 4 sekunder
+            n_intervals=200),
 
 
         ################################
@@ -100,7 +102,9 @@ def app_layout():
             ),
         ], id="modal", size='l', centered=True),
 
-    ], style={'backgroundColor': '#F7F8FC', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
+    ], style={'backgroundColor': '#CAD2D3', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
+
+#    ], style={'backgroundColor': '#F7F8FC', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
 
 
 app.layout = app_layout
@@ -134,8 +138,9 @@ def header_row(n, bolig_type_value):
         dbc.CardBody([
                     dbc.Row([
                             dbc.Col([
+                                html.H3('Live bolig Dashboard'),
                                     html.H1([current_date],
-                                            style={'margin-top': '-15px'}),
+                                            style={'font-weight': 'bold', 'margin-top': '-15px'}),
                                     ], width=7),
 
                             dbc.Col([
@@ -157,19 +162,40 @@ def top_row(n, bolig_type_value):
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
-    current_date = df['oprettelsesdato'].max().strftime("%d-%m-%Y")
-
     num_listings = len(df_today)
+
+    total_images = df_today['image_count'].sum()
+
+    mean_månedlig_leje = str(int(
+        df_today['månedlig_leje'].mean())) + ' kr.'
+
+    mean_depositum = str(int(
+        df_today['depositum'].mean())) + ' kr.'
+
+    mean_aconto = str(int(
+        df_today['aconto'].mean())) + ' kr.'
+
+    mean_kvadratmeter = str(int(
+        df_today['kvadratmeter'].mean())) + ' m2'
 
     return [dbc.Row([
                     dbc.Col([
                         dbc.Card([
                             dbc.CardBody([
                                 html.Div([
-                                    html.H3([current_date]),
-                                    html.P(['Dagens dato'])
+                                    html.H3([num_listings]),
+                                    html.P(['Oprettede boliger i dag'])
+                                ], style={'textAlign': 'center'})
+                            ])
+                        ])
+                    ], width=2),
 
-
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.Div([
+                                    html.H3([total_images]),
+                                    html.P(['Oploaded billeder'])
                                 ], style={'textAlign': 'center'})
                             ])
                         ])
@@ -180,22 +206,53 @@ def top_row(n, bolig_type_value):
                         dbc.Card([
                             dbc.CardBody([
                                 html.Div([
-                                    html.H3([num_listings]),
-                                    html.P(['Oprettede boliger i dag'])
-
-
+                                    html.H3([mean_månedlig_leje]),
+                                    html.P(['Gennemsnit månedlig leje'])
                                 ], style={'textAlign': 'center'})
                             ])
                         ])
                     ], width=2),
 
 
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.Div([
+                                    html.H3([mean_kvadratmeter]),
+                                    html.P(['Gennemsnit kvadratmeter'])
+                                ], style={'textAlign': 'center'})
+                            ])
+                        ])
+                    ], width=2),
+
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.Div([
+                                    html.H3([mean_depositum]),
+                                    html.P(['Gennemsnit depositum'])
+                                ], style={'textAlign': 'center'})
+                            ])
+                        ])
+                    ], width=2),
+
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.Div([
+                                    html.H3([mean_aconto]),
+                                    html.P(['Gennemsnit aconto'])
+                                ], style={'textAlign': 'center'})
+                            ])
+                        ])
+                    ], width=2),
+
                     ])]
 
 
-@app.callback(Output('map_today', 'children'),
-              [Input('interval-component', 'n_intervals'),
-               Input('bolig_type_value', 'value')])
+@ app.callback(Output('map_today', 'children'),
+               [Input('interval-component', 'n_intervals'),
+                Input('bolig_type_value', 'value')])
 def map_today(n, bolig_type_value):
     df = get_data_file.get_data(n, bolig_type_value)
 
@@ -207,12 +264,40 @@ def map_today(n, bolig_type_value):
                                 dbc.CardBody([
                                     html.Div(
                                         dcc.Graph(
-                                            figure=graph_functions.map_today(df), config={'displayModeBar': False})
-                                    )
-
+                                            figure=graph_functions.map_today(df, color_maps), config={'displayModeBar': False}))
                                 ], style={'textAlign': 'center'})
                             ])
+                            ], width=3),
+
+                    dbc.Col([
+                            dbc.Card([
+                                dbc.CardBody([
+                                    html.Div(
+                                        dcc.Graph(
+                                            figure=graph_functions.top5_by(df, color_maps), config={'displayModeBar': False}))
+                                ], style={'textAlign': 'center'})
+                            ]),
+
+                            html.Div([], style={'padding': '15px'}),
+
+                            dbc.Card([
+                                dbc.CardBody([
+                                    html.Div(
+                                        dcc.Graph(
+                                            figure=graph_functions.bar_boligtype(df, color_maps), config={'displayModeBar': False}))
+                                ], style={'textAlign': 'center'})
                             ])
+                            ], width=3),
+
+                    dbc.Col([
+                            dbc.Card([
+                                dbc.CardBody([
+                                    html.Div(
+                                        dcc.Graph(
+                                            figure=graph_functions.scatter_månedlig_leje_kvadratmeter(df, color_maps), config={'displayModeBar': False}))
+                                ], style={'textAlign': 'center'})
+                            ])
+                            ], width=6),
                     ])
 
             ]
@@ -230,36 +315,95 @@ def graph_row(n, bolig_type_value):
                                 dbc.CardBody([
                                     html.Div(
                                         dcc.Graph(
-                                            figure=graph_functions.total_timeseries(df), config={'displayModeBar': False})
+                                            figure=graph_functions.total_timeseries(df, color_maps), config={'displayModeBar': False})
                                     )
-
                                 ], style={'textAlign': 'center'})
                             ])
-                            ])
+                            ]),
                     ])
-
             ]
 
 
-@ app.callback(Output('info_table', 'children'),
+@ app.callback(Output('table_row', 'children'),
                [Input('interval-component', 'n_intervals'),
                 Input('bolig_type_value', 'value')])
 def info_table(n, bolig_type_value):
     df = get_data_file.get_data(n, bolig_type_value)
-    df = df.tail(5)
-    df.sort_values('oprettelsesdato', ascending=False, inplace=True)
 
-    df['oprettelsesdato'] = df['oprettelsesdato'].dt.strftime("%d-%m-%Y")
+    df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
-    df['månedlig_leje'] = df['månedlig_leje'].apply(lambda x: str(x) + ' kr.')
+    df_table = df.tail(5)
+    df_table.sort_values('oprettelsesdato', ascending=False, inplace=True)
 
-    df = df[['titel', 'adresse', 'boligtype',
-             'månedlig_leje', 'oprettelsesdato']]
+    df_table['månedlig_leje'] = df_table['månedlig_leje'].apply(
+        lambda x: str(x) + ' kr.')
 
-    table = dbc.Table.from_dataframe(
-        df, striped=True, responsive=True, borderless=True, size='sm')
+    df_table = df_table[['titel', 'adresse', 'boligtype',
+                         'månedlig_leje']]
 
-    return table
+    latest_5_table = dbc.Table.from_dataframe(
+        df_table, striped=True, responsive=True, borderless=True, size='sm')
+
+    dyreste_bolig = df_today[df_today['månedlig_leje']
+                             == df_today['månedlig_leje'].max()][['titel', 'adresse', 'boligtype',
+                                                                  'månedlig_leje']]
+
+    dyreste_bolig['månedlig_leje'] = dyreste_bolig['månedlig_leje'].apply(
+        lambda x: str(x) + ' kr.')
+
+    dyreste_bolig_table = dbc.Table.from_dataframe(
+        dyreste_bolig, striped=False, responsive=True, borderless=True, size='sm')
+
+    billigste_bolig = df_today[df_today['månedlig_leje']
+                               == df_today['månedlig_leje'].min()][['titel', 'adresse', 'boligtype',
+                                                                    'månedlig_leje']]
+    billigste_bolig['månedlig_leje'] = billigste_bolig['månedlig_leje'].apply(
+        lambda x: str(x) + ' kr.')
+
+    billigste_bolig_table = dbc.Table.from_dataframe(
+        billigste_bolig, striped=False, responsive=True, borderless=True, size='sm')
+
+    return [dbc.Row([
+        dbc.Col([
+            dbc.Card([
+                dbc.CardBody([
+                    dbc.Row([
+                        html.H3(['Seneste 5 boliger oprettet'],
+                                style={'font-weight': 'bold'}),
+                    ]),
+                    dbc.Row([
+                        html.Div(latest_5_table)
+                    ])
+                ])
+            ]),
+        ], width=6),
+
+        dbc.Col([
+            dbc.Card([
+                dbc.CardBody([
+                    dbc.Row([
+                        html.H4(['Dyreste månedlig huslige oprettet i dag'], style={
+                                'font-weight': 'bold'}),
+                    ]),
+                    dbc.Row([
+                        html.Div(dyreste_bolig_table),
+                    ]),
+
+                    html.Div([], style={'padding': '7px'}),
+
+                    dbc.Row([
+                        html.H4(['Billigste månedlig huslige oprettet i dag'], style={
+                                'font-weight': 'bold'}),
+                    ]),
+                    dbc.Row([
+                        html.Div(billigste_bolig_table),
+                    ])
+
+
+                ])
+            ]),
+        ], width=6),
+    ])]
 
 
 if __name__ == '__main__':
