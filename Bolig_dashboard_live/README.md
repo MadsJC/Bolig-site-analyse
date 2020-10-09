@@ -1,2 +1,1 @@
-# Bolig_dashboard_live
- 
+# [Live dashboard (Hosted ved Heroku)](https://mc-livebolig.herokuapp.com/)
