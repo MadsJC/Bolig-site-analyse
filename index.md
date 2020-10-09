@@ -14,9 +14,9 @@ Følg alle trin ved at følge linkene herunder.
 
 
 ## Summary findings
-<img src="https://www.screencast.com/users/mc3465/folders/Capture/media/583225c2-f6d6-454c-b13f-5a51ecda8404/embed" width="400" height="200">
+<img src="https://i.imgur.com/SEpCJ0l.png" width="400" height="200">
 
-<img src="https://i.imgur.com/UKbmXcn.png" width="200" height="100">
+<img src="https://i.imgur.com/UKbmXcn.png" width="400" height="200">
 
         
 <iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
