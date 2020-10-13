@@ -22,6 +22,10 @@ color_maps = {'Lejlighed': '#939BFC', 'Rækkehus': '#F58677',
 
 bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 
+
+by_list = ['København', 'Aarhus', 'Odense', 'Aalborg', 'Esbjerg']
+
+
 ########
 # Dash setting:
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SPACELAB])
@@ -44,8 +48,16 @@ def app_layout():
                             dbc.Col([
                                 html.Div(['Vælg én eller flere boligtyper:']),
                                     dcc.Dropdown(id='bolig_type_value', options=[{'label': i, 'value': i} for i in bolig_type_list], value=[],
-                                                 multi=True, placeholder='Vælg boligtype her...', style={'width': '300px'})
-                                    ], width={"size": 4, "offset": 4})
+                                                 multi=True, placeholder='Vælg boligtyper her...', style={'width': '300px'})
+                                    ], width={"size": 4, "offset": 2}),
+
+
+                            dbc.Col([
+                                html.Div(
+                                    ['Vælg én eller flere byer:']),
+                                dcc.Dropdown(id='by_value', options=[{'label': i, 'value': i} for i in by_list], value=[],
+                                             multi=True, placeholder='Vælg byer her...', style={'width': '300px'})
+                            ], width={"size": 4, "offset": 2})
                             ])
 
                 ])),
@@ -114,8 +126,6 @@ def app_layout():
                 ])
             ),
             dbc.ModalFooter(
-                dbc.Button("Luk", color='primary', id="close",
-                           className="ml-auto")
             ),
         ], id="modal", size='l', centered=True),
 
@@ -129,11 +139,10 @@ app.layout = app_layout
 # MODAL CALL BACK
 ########################################
 @ app.callback(Output("modal", "is_open"),
-               [Input("open", "n_clicks"),
-                Input("close", "n_clicks")],
+               [Input("open", "n_clicks")],
                [State("modal", "is_open")])
-def toggle_modal(n1, n2, is_open):
-    if n1 or n2:
+def toggle_modal(n1, is_open):
+    if n1:
         return not is_open
     return is_open
 
@@ -157,9 +166,10 @@ def toggle_collapse(n, is_open):
 
 @ app.callback(Output('header_row', 'children'),
                [Input('interval-component', 'n_intervals'),
-                Input('bolig_type_value', 'value')])
-def header_row(n, bolig_type_value):
-    df = get_data_file.get_data(n, bolig_type_value)
+                Input('bolig_type_value', 'value'),
+                Input('by_value', 'value')])
+def header_row(n, bolig_type_value, by_value):
+    df = get_data_file.get_data(n, bolig_type_value, by_value)
 
     last_update = (pd.to_datetime('today') + timedelta(hours=2)
                    ).strftime('%d-%m-%Y kl. %H:%M:%S')
@@ -172,7 +182,7 @@ def header_row(n, bolig_type_value):
                             dbc.Col([
                                 html.H3('Live bolig dashboard'),
                                     html.H1([current_date],
-                                            style={'font-weight': 'bold', 'margin-top': '-15px', 'font-size': '60px'}),
+                                            style={'font-weight': 'bold', 'margin-top': '-15px', 'font-size': '70px'}),
                                     ], width=7),
 
                             dbc.Col([
@@ -193,9 +203,10 @@ def header_row(n, bolig_type_value):
 ########################################
 @ app.callback(Output('top_row', 'children'),
                [Input('interval-component', 'n_intervals'),
-                Input('bolig_type_value', 'value')])
-def top_row(n, bolig_type_value):
-    df = get_data_file.get_data(n, bolig_type_value)
+                Input('bolig_type_value', 'value'),
+                Input('by_value', 'value')])
+def top_row(n, bolig_type_value, by_value):
+    df = get_data_file.get_data(n, bolig_type_value, by_value)
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
@@ -293,9 +304,10 @@ def top_row(n, bolig_type_value):
 
 @ app.callback(Output('map_today', 'children'),
                [Input('interval-component', 'n_intervals'),
-                Input('bolig_type_value', 'value')])
-def map_today(n, bolig_type_value):
-    df = get_data_file.get_data(n, bolig_type_value)
+                Input('bolig_type_value', 'value'),
+                Input('by_value', 'value')])
+def map_today(n, bolig_type_value, by_value):
+    df = get_data_file.get_data(n, bolig_type_value, by_value)
 
     df = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
@@ -350,9 +362,10 @@ def map_today(n, bolig_type_value):
 
 @app.callback(Output('graph_row', 'children'),
               [Input('interval-component', 'n_intervals'),
-               Input('bolig_type_value', 'value')])
-def graph_row(n, bolig_type_value):
-    df = get_data_file.get_data(n, bolig_type_value)
+               Input('bolig_type_value', 'value'),
+               Input('by_value', 'value')])
+def graph_row(n, bolig_type_value, by_value):
+    df = get_data_file.get_data(n, bolig_type_value, by_value)
 
     return [dbc.Row([
                     dbc.Col([
@@ -375,9 +388,10 @@ def graph_row(n, bolig_type_value):
 
 @ app.callback(Output('table_row', 'children'),
                [Input('interval-component', 'n_intervals'),
-                Input('bolig_type_value', 'value')])
-def info_table(n, bolig_type_value):
-    df = get_data_file.get_data(n, bolig_type_value)
+                Input('bolig_type_value', 'value'),
+                Input('by_value', 'value')])
+def info_table(n, bolig_type_value, by_value):
+    df = get_data_file.get_data(n, bolig_type_value, by_value)
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
