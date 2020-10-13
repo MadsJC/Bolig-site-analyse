@@ -24,7 +24,8 @@ def total_timeseries(df, color_maps):
                        == i]['oprettelsesdato']
         y = df_grouped[df_grouped['boligtype'] == i]['ids']
         traces.append(go.Bar(x=x, y=y, name=i, marker_color=color_maps[i],
-                             opacity=0.70))
+                             marker_line_color='rgb(8,48,107)',
+                             marker_line_width=0.6, opacity=0.7))
 
     traces.append(go.Scatter(x=df_grouped_mean['oprettelsesdato'], y=df_grouped_mean['ids'], name='Mean',
                              opacity=0.70, mode='lines', marker_color='black',
@@ -70,7 +71,7 @@ def top5_by(df, color_maps):
     x = df_grouped['ids']
     traces.append(go.Bar(x=x, y=y, text=x, textposition='inside',
                          orientation='h', marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)',
-                         marker_line_width=0.9, opacity=0.5))
+                         marker_line_width=0.6, opacity=0.7))
 
     return {'data': traces,
             'layout': dict(
@@ -110,7 +111,9 @@ def bar_boligtype(df, color_maps):
         text_val = df_valuecounts_boligtyper[df_valuecounts_boligtyper['boligtype']
                                              == i]['text_val']
         traces.append(go.Bar(x=x, y=y, text=text_val, textposition='auto',
-                             opacity=0.70, orientation='h', marker_color=color_maps[i]))
+                             orientation='h', marker_color=color_maps[i],
+                             marker_line_color='rgb(8,48,107)',
+                             marker_line_width=0.6, opacity=0.7))
 
     return {'data': traces,
             'layout': dict(
