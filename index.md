@@ -25,7 +25,7 @@ Følg alle trin ved at følge linkene herunder.
 
 
 <iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
-        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="450" width="800" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="250" width="500" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 
