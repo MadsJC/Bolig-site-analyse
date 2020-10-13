@@ -5,6 +5,9 @@ import dash_core_components as dcc
 from datetime import timedelta
 
 
+########################################
+# total_timeseries function
+########################################
 def total_timeseries(df, color_maps):
     df_grouped = df.groupby(['boligtype', 'oprettelsesdato'],
                             as_index=False)['ids'].count()
@@ -49,6 +52,10 @@ def total_timeseries(df, color_maps):
                     'easing': 'cubic-in-out'},
                 margin={'l': 35, 'r': 1, 't': 40, 'b': 50})}
 
+########################################
+# top5_by function
+########################################
+
 
 def top5_by(df, color_maps):
     df_grouped = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
@@ -80,6 +87,10 @@ def top5_by(df, color_maps):
                 height=165,
                 title='Top 5 byer',
                 margin={'l': 75, 'r': 1, 't': 30, 'b': 1})}
+
+########################################
+# bar_boligtype function
+########################################
 
 
 def bar_boligtype(df, color_maps):
@@ -119,6 +130,10 @@ def bar_boligtype(df, color_maps):
                 title='Boligtyper',
                 margin={'l': 75, 'r': 1, 't': 30, 'b': 1})}
 
+########################################
+# scatter_månedlig_leje_kvadratmeter function
+########################################
+
 
 def scatter_månedlig_leje_kvadratmeter(df, color_maps):
     df_grouped = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
@@ -153,6 +168,10 @@ def scatter_månedlig_leje_kvadratmeter(df, color_maps):
                     'duration': 500,
                     'easing': 'cubic-in-out'},
                 margin={'l': 50, 'r': 1, 't': 40, 'b': 50})}
+
+########################################
+# map_today function
+########################################
 
 
 def map_today(df_map, color_maps):

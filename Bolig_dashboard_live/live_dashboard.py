@@ -25,21 +25,32 @@ bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 ########
 # Dash setting:
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SPACELAB])
-
-
 app.title = 'Live bolig dashboard'
 server = app.server
 
 
 def app_layout():
-
-    print()
-    print('------------- Running app_layout() ---------------')
-    print()
     #----------------------------------------
     # LAYOUT:
     return html.Div([
         html.Div(id='header_row'),
+
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody([
+                    html.H4(['Indstillinger'], style={'textAlign': 'center'}),
+
+                    dbc.Row([
+                            dbc.Col([
+                                html.Div(['Vælg én eller flere boligtyper:']),
+                                    dcc.Dropdown(id='bolig_type_value', options=[{'label': i, 'value': i} for i in bolig_type_list], value=[],
+                                                 multi=True, placeholder='Vælg boligtype her...', style={'width': '300px'})
+                                    ], width={"size": 4, "offset": 4})
+                            ])
+
+                ])),
+            id="collapse",
+        ),
 
         html.P([], style={'padding': '5px'}),
 
@@ -62,7 +73,6 @@ def app_layout():
         html.Div(['Created by Mads Jepsen Claussen'],
                  style={'textAlign': 'center'}),
 
-
         ################################
         # Interval-Settings:
         dcc.Interval(
@@ -70,14 +80,38 @@ def app_layout():
             interval=4000,  # 4 sekunder
             n_intervals=200),
 
-
         ################################
         # Modal-Settings:
         dbc.Modal([
-            dbc.ModalHeader("Indstillinger for dashboard"),
+            dbc.ModalHeader("Bolig-site scrape og analyse"),
             dbc.ModalBody(
-                dcc.Dropdown(id='bolig_type_value', options=[{'label': i, 'value': i} for i in bolig_type_list], value=[],
-                             multi=True, placeholder='Vælg en eller flere boligtyper her...', style={'width': '300px'})
+                html.Div([
+                    html.H4('Om'),
+                    html.Div(
+                        "Dette dashboard opdateres hvert 4. sekund med flere boliger. Formålet er at illustere hvordan et 'live' dashboard kunne se ud."),
+                    html.Br(),
+                    html.Div(),
+                    html.H4('Indhold'),
+                    html.Div(),
+                    html.A("Hjem (Github Pages)",
+                           href='https://madsjc.github.io/Bolig-site-analyse/', target="_blank"),
+                    html.Div(),
+                    html.Br(),
+                    html.A("1. Webscrape script (Python)",
+                           href='https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py', target="_blank"),
+                    html.Br(),
+                    html.A("2. Data Clean (Jupyter Notebook)",
+                           href='https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb', target="_blank"),
+                    html.Br(),
+                    html.A("3. Exploratory Data Analysis - EDA (Jupyter Notebook)",
+                           href='https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb', target="_blank"),
+                    html.Br(),
+                    html.A("4. Live dashboard (Hosted ved Heroku)",
+                           href='https://mc-livebolig.herokuapp.com/', target="_blank", style={'font-weight': 'bold'}),
+                    html.Br(),
+                    html.A("5. Live dashboard BACKEND (Python)",
+                           href='https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live', target="_blank"),
+                ])
             ),
             dbc.ModalFooter(
                 dbc.Button("Luk", color='primary', id="close",
@@ -94,19 +128,36 @@ app.layout = app_layout
 ########################################
 # MODAL CALL BACK
 ########################################
-@app.callback(Output("modal", "is_open"),
-              [Input("open", "n_clicks"),
-               Input("close", "n_clicks")],
-              [State("modal", "is_open")])
+@ app.callback(Output("modal", "is_open"),
+               [Input("open", "n_clicks"),
+                Input("close", "n_clicks")],
+               [State("modal", "is_open")])
 def toggle_modal(n1, n2, is_open):
     if n1 or n2:
         return not is_open
     return is_open
 
 
-@app.callback(Output('header_row', 'children'),
-              [Input('interval-component', 'n_intervals'),
-               Input('bolig_type_value', 'value')])
+########################################
+# COLLAPSE CALL BACK
+########################################
+@ app.callback(
+    Output("collapse", "is_open"),
+    [Input("collapse-button", "n_clicks")],
+    [State("collapse", "is_open")])
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+########################################
+# header_row CALL BACK
+########################################
+
+
+@ app.callback(Output('header_row', 'children'),
+               [Input('interval-component', 'n_intervals'),
+                Input('bolig_type_value', 'value')])
 def header_row(n, bolig_type_value):
     df = get_data_file.get_data(n, bolig_type_value)
 
@@ -119,42 +170,47 @@ def header_row(n, bolig_type_value):
         dbc.CardBody([
                     dbc.Row([
                             dbc.Col([
-                                html.H3('Live bolig Dashboard'),
+                                html.H3('Live bolig dashboard'),
                                     html.H1([current_date],
-                                            style={'font-weight': 'bold', 'margin-top': '-15px'}),
+                                            style={'font-weight': 'bold', 'margin-top': '-15px', 'font-size': '60px'}),
                                     ], width=7),
 
                             dbc.Col([
                                     html.Div(last_update,
                                              style={'textAlign': 'right', 'margin-top': '-15px', 'margin-right': '-15px'}),
-                                    dbc.Button("Indstillinger", color='primary', outline=True, style={'float': 'right', 'margin-right': '-10px', 'margin-top': '10px'},
+                                    dbc.Button("About", color='warning', outline=True, style={'float': 'right', 'margin-right': '-10px', 'margin-top': '10px'},
                                                id="open", size="sm"),
+                                    dbc.Button("Indstillinger", color='info', outline=True, style={'float': 'right', 'margin-right': '-55px', 'margin-top': '50px'},
+                                               id="collapse-button", size="sm"),
                                     ], width=5)
                             ])
                     ])
     ]),
 
 
-@app.callback(Output('top_row', 'children'),
-              [Input('interval-component', 'n_intervals'),
-               Input('bolig_type_value', 'value')])
+########################################
+# top_row CALL BACK
+########################################
+@ app.callback(Output('top_row', 'children'),
+               [Input('interval-component', 'n_intervals'),
+                Input('bolig_type_value', 'value')])
 def top_row(n, bolig_type_value):
     df = get_data_file.get_data(n, bolig_type_value)
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
-    num_listings = len(df_today)
+    num_listings = '{:,}'.format(len(df_today))
 
-    total_images = df_today['image_count'].sum()
+    total_images = '{:,}'.format(df_today['image_count'].sum())
 
-    mean_månedlig_leje = str(int(
-        df_today['månedlig_leje'].mean())) + ' kr.'
+    mean_månedlig_leje = str('{:,}'.format(int(
+        df_today['månedlig_leje'].mean()))) + ' kr.'
 
-    mean_depositum = str(int(
-        df_today['depositum'].mean())) + ' kr.'
+    mean_depositum = str('{:,}'.format(int(
+        df_today['depositum'].mean()))) + ' kr.'
 
-    mean_aconto = str(int(
-        df_today['aconto'].mean())) + ' kr.'
+    mean_aconto = str('{:,}'.format(int(
+        df_today['aconto'].mean()))) + ' kr.'
 
     mean_kvadratmeter = str(int(
         df_today['kvadratmeter'].mean())) + ' m2'
@@ -230,6 +286,10 @@ def top_row(n, bolig_type_value):
 
                     ])]
 
+########################################
+# map_today CALL BACK
+########################################
+
 
 @ app.callback(Output('map_today', 'children'),
                [Input('interval-component', 'n_intervals'),
@@ -283,6 +343,10 @@ def map_today(n, bolig_type_value):
 
             ]
 
+########################################
+# graph_row CALL BACK
+########################################
+
 
 @app.callback(Output('graph_row', 'children'),
               [Input('interval-component', 'n_intervals'),
@@ -303,6 +367,10 @@ def graph_row(n, bolig_type_value):
                             ]),
                     ])
             ]
+
+########################################
+# table_row CALL BACK
+########################################
 
 
 @ app.callback(Output('table_row', 'children'),
