@@ -7,15 +7,17 @@ Følg alle trin ved at følge linkene herunder.
 
 ## Indhold
 1. [**Webscrape script (Python)**](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py){:target="_blank"}
-2. [**Data Clean (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb){:target="_blank"}
-3. [**Exploratory Data Analysis - EDA (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb){:target="_blank"}
+2. [**Data Clean (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Data%20Clean.ipynb?flush_cache=true){:target="_blank"}
+3. [**Exploratory Data Analysis - EDA (Jupyter Notebook)**](https://nbviewer.jupyter.org/github/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20-%20Exploratory%20Data%20Analysis%20%28EDA%29.ipynb?flush_cache=true){:target="_blank"}
 4. [**Live dashboard (Hosted ved Heroku)**](https://mc-livebolig.herokuapp.com/){:target="_blank"}
 5. [**Live dashboard BACKEND (Python)**](https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live){:target="_blank"}
 
 
 ## Summary findings
 
-<img src="https://i.imgur.com/SEpCJ0l.png" width="500" height="250">
+<img src="https://i.imgur.com/9Kcj2uU.png" width="500" height="250">
+
+<img src="https://i.imgur.com/59Kexti.png" width="500" height="250">
 
 <img src="https://i.imgur.com/UKbmXcn.png" width="500" height="250">
 
@@ -23,9 +25,10 @@ Følg alle trin ved at følge linkene herunder.
 
 <img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
 
+<img src="https://i.imgur.com/40RF75r.png" width="500" height="250">
 
 <iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
-        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="450" width="800" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="250" width="500" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 
