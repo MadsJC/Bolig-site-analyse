@@ -32,7 +32,7 @@ Følg alle trin ved at følge linkene herunder.
 
 ## Libraries brugt
 
-###### Generelt
+###### Data wrangling
 * [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/){:target="_blank"}
 * [Numpy](https://numpy.org/doc/stable/reference/){:target="_blank"}
 
