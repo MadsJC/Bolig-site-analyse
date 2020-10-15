@@ -51,7 +51,7 @@ def total_timeseries(df, color_maps):
                 transition={
                     'duration': 500,
                     'easing': 'cubic-in-out'},
-                margin={'l': 35, 'r': 1, 't': 40, 'b': 50})}
+                margin={'l': 30, 'r': 1, 't': 30, 'b': 30})}
 
 ########################################
 # top5_by function
@@ -85,7 +85,7 @@ def top5_by(df, color_maps):
                     showticklabels=True,
                     nticks=20),
                 autosize=True,
-                height=165,
+                height=180,
                 title='Top 5 byer',
                 margin={'l': 75, 'r': 1, 't': 30, 'b': 1})}
 
@@ -129,7 +129,7 @@ def bar_boligtype(df, color_maps):
                 autosize=True,
                 barmode='stack',
                 showlegend=False,
-                height=165,
+                height=180,
                 title='Boligtyper',
                 margin={'l': 75, 'r': 1, 't': 30, 'b': 1})}
 
@@ -147,7 +147,7 @@ def scatter_månedlig_leje_kvadratmeter(df, color_maps):
         x = df_grouped[df_grouped['boligtype']
                        == i]['kvadratmeter']
         y = df_grouped[df_grouped['boligtype'] == i]['månedlig_leje']
-        traces.append(go.Scatter(x=x, y=y, name=i, marker_color=color_maps[i],
+        traces.append(go.Scatter(x=x, y=y, name=i, marker_color=color_maps[i], marker_size=10,
                                  opacity=0.70, mode='markers'))
 
     return {'data': traces,
@@ -165,12 +165,11 @@ def scatter_månedlig_leje_kvadratmeter(df, color_maps):
                     nticks=20),
                 showlegend=True,
                 autosize=True,
-                height=400,
-                title=df['oprettelsesdato'].max().strftime('%d-%m-%Y'),
+                height=380,
                 transition={
                     'duration': 500,
                     'easing': 'cubic-in-out'},
-                margin={'l': 50, 'r': 1, 't': 40, 'b': 50})}
+                margin={'l': 50, 'r': 1, 't': 5, 'b': 40})}
 
 ########################################
 # map_today function
@@ -198,7 +197,7 @@ def map_today(df_map, color_maps):
             mode='markers',
             name=i,
             marker=go.scattermapbox.Marker(
-                size=df_map['Antal'] + 3,
+                size=df_map['Antal'] + 4,
                 color=color_maps[i],
                 opacity=0.9
             ),

@@ -4,7 +4,7 @@ from datetime import timedelta
 
 
 def get_data(n, bolig_type_value, by_value):
-    row_value = ((n / 50) / 100) * (36000 * 4)
+    row_value = ((n / 50) / 100) * (36000 * 5)
 
     df = pd.read_csv('clean_data/cleaned_df.csv',
                      sep=';', nrows=int(row_value))
