@@ -1,4 +1,4 @@
-# [**Bolig dashboard_live)**](https://mc-livebolig.herokuapp.com/)
+# [**Bolig dashboard_live**](https://mc-livebolig.herokuapp.com/)
  
 ## Indhold
 1. [**Webscrape script (Python)**](https://github.com/MadsJC/Bolig-site-analyse/blob/master/PYTHON%20Bolig-Scraper.py)
