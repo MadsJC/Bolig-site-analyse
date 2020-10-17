@@ -15,13 +15,21 @@ Følg alle trin ved at følge linkene herunder.
 
 ## Summary findings
 
-<img src="https://i.imgur.com/59Kexti.png" width="500" height="250">
+<img src="https://i.imgur.com/fUss9yV.png" width="500" height="250">
 
-<img src="https://i.imgur.com/UKbmXcn.png" width="500" height="200">
+<img src="https://i.imgur.com/8x1LOlB.png" width="500" height="200">
 
-<img src="https://i.imgur.com/yqPbRAR.png" width="500" height="250">
+<img src="https://i.imgur.com/1SVzJkh.png" width="500" height="250">
 
-<img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
+<img src="https://i.imgur.com/cB6jkBS.png" width="500" height="250">
+
+<img src="https://i.imgur.com/oQP0ryL.png" width="500" height="250">
+
+<img src="https://i.imgur.com/zMPQRwZ.png" width="500" height="250">
+
+
+<img src="https://i.imgur.com/oQP0ryL.png" width="500" height="250">
+<img src="https://i.imgur.com/oQP0ryL.png" width="500" height="250">
 
 <img src="https://i.imgur.com/40RF75r.png" width="250" height="125"> <img src="https://i.imgur.com/9Kcj2uU.png" width="250" height="125">
 
@@ -32,6 +40,18 @@ Følg alle trin ved at følge linkene herunder.
 
 
 ## Libraries brugt
+
+############ !!
+<img src="https://i.imgur.com/59Kexti.png" width="500" height="250">
+
+<img src="https://i.imgur.com/UKbmXcn.png" width="500" height="200">
+
+<img src="https://i.imgur.com/yqPbRAR.png" width="500" height="250">
+
+<img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
+
+<img src="https://i.imgur.com/40RF75r.png" width="250" height="125"> <img src="https://i.imgur.com/9Kcj2uU.png" width="250" height="125">
+######### !!
 
 ###### Data wrangling
 * [Pandas](https://pandas.pydata.org/pandas-docs/version/0.25.3/){:target="_blank"}
