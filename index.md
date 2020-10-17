@@ -30,6 +30,10 @@ Følg alle trin ved at følge linkene herunder.
 <img src="https://i.imgur.com/KIZkQqm.png" width="500" height="250">
 
 <img src="https://i.imgur.com/uN9jEPU.png" width="500" height="250">
+<iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
+        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/9eb46b74-ddb5-4634-bb40-08a70ea5a7d0/embed" height="250" width="500" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+[**Se live dashboard her**](https://mc-livebolig.herokuapp.com/){:target="_blank"}
+
 
 
 ## Summary findings
