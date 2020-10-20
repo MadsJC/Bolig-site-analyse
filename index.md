@@ -1,5 +1,3 @@
-# Bolig-site scrape og analyse
-
 ##### Formål
 Formålet med dette repository er kort at præsentere et udsnit af mine tekniske egenskaber, hvorfor der er flere interessante emner i det scrappede data, der under EDA ikke er blevet undersøgt.
 
