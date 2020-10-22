@@ -24,7 +24,7 @@ def total_timeseries(df, color_maps):
                        == i]['oprettelsesdato']
         y = df_grouped[df_grouped['boligtype'] == i]['ids']
         traces.append(go.Bar(x=x, y=y, name=i, marker_color=color_maps[i],
-                             marker_line_color='rgb(8,48,107)',
+                             # marker_line_color='rgb(8,48,107)',
                              marker_line_width=0.6, opacity=0.7))
 
     traces.append(go.Scatter(x=df_grouped_mean['oprettelsesdato'], y=df_grouped_mean['ids'], name='Mean',

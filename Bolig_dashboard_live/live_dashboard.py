@@ -20,8 +20,9 @@ from datetime import timedelta
 
 ########
 # Universal lists
-color_maps = {'Lejlighed': '#939BFC', 'Rækkehus': '#F58677',
-              'Villa': '#68DBB6', 'Værelse': '#ffd700'}
+color_maps = {'Lejlighed': '#264653', 'Rækkehus': '#2a9d8f',
+              'Villa': '#e9c46a', 'Værelse': '#e76f51'}
+
 
 bolig_type_list = ['Lejlighed', 'Rækkehus', 'Villa', 'Værelse']
 
@@ -132,9 +133,10 @@ def app_layout():
             ),
         ], id="modal", size='l', centered=True),
 
-    ], style={'backgroundColor': '#CAD2D3', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
+    ], style={'backgroundColor': '#b1b5b5', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
 
-
+#C4CFD4
+#b1b5b5
 app.layout = app_layout
 
 
@@ -411,14 +413,15 @@ def graph_row(n, bolig_type_value, by_value):
 ########################################
 # table_row CALL BACK
 ########################################
-
-
 @ app.callback(Output('table_row', 'children'),
                [Input('interval-component', 'n_intervals'),
                 Input('bolig_type_value', 'value'),
                 Input('by_value', 'value')])
 def info_table(n, bolig_type_value, by_value):
     df = get_data_file.get_data(n, bolig_type_value, by_value)
+    column_rename_dict = {'titel':'Titel', 'adresse':'Adresse', 'boligtype':'Boligtype', 'månedlig_leje':'Månedlig leje'}
+
+    df = df.rename(columns=column_rename_dict)
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
@@ -427,31 +430,31 @@ def info_table(n, bolig_type_value, by_value):
 
     df_table.sort_values('oprettelsesdato', ascending=False, inplace=True)
 
-    df_table['månedlig_leje'] = df_table['månedlig_leje'].apply(
+    df_table['Månedlig leje'] = df_table['Månedlig leje'].apply(
         lambda x: str(x) + ' kr.')
 
-    df_table = df_table[['titel', 'adresse', 'boligtype',
-                         'månedlig_leje']]
+    df_table = df_table[['Titel', 'Adresse', 'Boligtype',
+                         'Månedlig leje']]
 
     latest_5_table = dbc.Table.from_dataframe(
         df_table, striped=True, responsive=True, borderless=False, size='sm')
 
     # Most expensive entity
-    dyreste_bolig = df_today[df_today['månedlig_leje']
-                             == df_today['månedlig_leje'].max()][['titel', 'adresse', 'boligtype',
-                                                                  'månedlig_leje']]
+    dyreste_bolig = df_today[df_today['Månedlig leje']
+                             == df_today['Månedlig leje'].max()][['Titel', 'Adresse', 'Boligtype',
+                                                                  'Månedlig leje']]
 
-    dyreste_bolig['månedlig_leje'] = dyreste_bolig['månedlig_leje'].apply(
+    dyreste_bolig['Månedlig leje'] = dyreste_bolig['Månedlig leje'].apply(
         lambda x: str('{:,}'.format(x)) + ' kr.')
 
     dyreste_bolig_table = dbc.Table.from_dataframe(
         dyreste_bolig, striped=False, responsive=True, borderless=True, size='sm')
 
     # Cheapest entity
-    billigste_bolig = df_today[df_today['månedlig_leje']
-                               == df_today['månedlig_leje'].min()][['titel', 'adresse', 'boligtype',
-                                                                    'månedlig_leje']]
-    billigste_bolig['månedlig_leje'] = billigste_bolig['månedlig_leje'].apply(
+    billigste_bolig = df_today[df_today['Månedlig leje']
+                               == df_today['Månedlig leje'].min()][['Titel', 'Adresse', 'Boligtype',
+                                                                    'Månedlig leje']]
+    billigste_bolig['Månedlig leje'] = billigste_bolig['Månedlig leje'].apply(
         lambda x: str('{:,}'.format(x)) + ' kr.')
 
     billigste_bolig_table = dbc.Table.from_dataframe(
