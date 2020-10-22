@@ -13,9 +13,9 @@ Følg alle trin ved at følge linkene herunder.
 
 ## Summary findings
 
-<img src="https://i.imgur.com/fUss9yV.png" width="250" height="125"> <img src="https://i.imgur.com/8x1LOlB.png" width="250" height="125">
+<img src="https://i.imgur.com/fUss9yV.png" width="250" height="125"> <img src="https://i.imgur.com/ecSy11r.png" width="250" height="125">
 <img src="https://i.imgur.com/1SVzJkh.png" width="250" height="125"> <img src="https://i.imgur.com/cB6jkBS.png" width="250" height="125">
-<img src="https://i.imgur.com/oQP0ryL.png" width="250" height="125"> <img src="https://i.imgur.com/zMPQRwZ.png" width="250" height="125">
+<img src="https://i.imgur.com/oQP0ryL.png" width="250" height="125"> <img src="https://i.imgur.com/llHgvy0.png" width="250" height="125">
 <img src="https://i.imgur.com/KIZkQqm.png" width="250" height="125"> <img src="https://i.imgur.com/uN9jEPU.png" width="250" height="125">
 
 
