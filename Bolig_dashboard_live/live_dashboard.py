@@ -2,6 +2,7 @@
 # Andre Python files:
 import get_data_file
 import graph_functions
+import datatable
 
 ########
 # Dash imports
@@ -176,7 +177,7 @@ def toggle_collapse(n, is_open):
 def header_row(n, bolig_type_value, by_value):
     df = get_data_file.get_data(n, bolig_type_value, by_value)
 
-    last_update = (pd.to_datetime('today') + timedelta(hours=2)
+    last_update = (pd.to_datetime('today') + timedelta(hours=1)
                    ).strftime('%d-%m-%Y kl. %H:%M:%S')
 
     current_date = df['oprettelsesdato'].max().strftime("%d-%m-%Y")
@@ -419,25 +420,21 @@ def graph_row(n, bolig_type_value, by_value):
                 Input('by_value', 'value')])
 def info_table(n, bolig_type_value, by_value):
     df = get_data_file.get_data(n, bolig_type_value, by_value)
-    column_rename_dict = {'titel':'Titel', 'adresse':'Adresse', 'boligtype':'Boligtype', 'månedlig_leje':'Månedlig leje'}
+    column_rename_dict = {'titel':'Titel', 'adresse':'Adresse', 'boligtype':'Boligtype', 
+                            'månedlig_leje':'Månedlig leje', 'image_count':'Antal billeder','kvadratmeter':'Kvadratmeter'}
 
     df = df.rename(columns=column_rename_dict)
 
     df_today = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
     # Latest 5 entities
-    df_table = df.tail(5)
+    df_latest_five = df.tail(5)
 
-    df_table.sort_values('oprettelsesdato', ascending=False, inplace=True)
+    df_latest_five.sort_values('oprettelsesdato', ascending=False, inplace=True)
 
-    df_table['Månedlig leje'] = df_table['Månedlig leje'].apply(
-        lambda x: str(x) + ' kr.')
+    df_latest_five = df_latest_five[['Titel', 'Adresse', 'Boligtype',
+                         'Månedlig leje', 'Antal billeder', 'Kvadratmeter']]
 
-    df_table = df_table[['Titel', 'Adresse', 'Boligtype',
-                         'Månedlig leje']]
-
-    latest_5_table = dbc.Table.from_dataframe(
-        df_table, striped=True, responsive=True, borderless=False, size='sm')
 
     # Most expensive entity
     dyreste_bolig = df_today[df_today['Månedlig leje']
@@ -466,11 +463,34 @@ def info_table(n, bolig_type_value, by_value):
                 dbc.CardBody([
                     dbc.Row([
                         html.H3(['Seneste 5 boliger oprettet'],
-                                style={'font-weight': 'bold'}),
+                                style={'font-weight': 'bold', 'padding-left':'15px'}),
                     ]),
                     dbc.Row([
-                        html.Div([latest_5_table])
-                    ])
+                        dbc.Col([
+                        dash_table.DataTable(
+                        data=df_latest_five.to_dict('records'),
+                        columns=[{'name': i, 'id': i} for i in df_latest_five.columns],
+                        style_data_conditional=(
+                            datatable.data_bars(df_latest_five, 'Månedlig leje') + 
+                            datatable.data_bars(df_latest_five, 'Antal billeder') + 
+                            datatable.data_bars(df_latest_five, 'Kvadratmeter')
+                        ),
+                        style_header={'textAlign': 'left', 'fontWeight': 'bold', 'font-family':'Open Sans'},
+                        style_table={'overflowX': 'auto'},
+                        style_cell_conditional=[
+                                        {'if': {'column_id': c},
+                                            'textAlign': 'right'
+                                        } for c in ['Månedlig leje', 'Antal billeder', 'Kvadratmeter']],
+                        style_cell={
+                            'font-family':'Open Sans',
+                            'font-size':'12px',
+                            'textAlign': 'left',
+                            'overflow': 'hidden',
+                            'textOverflow': 'ellipsis',
+                            'width': 'auto'},
+                        css=[{'selector': '.row', 'rule': 'margin: 0'}]
+                    )], width=12)
+                        ])
                 ])
             ]),
         ], width=6),
