@@ -13,25 +13,6 @@ Følg alle trin ved at følge linkene herunder.
 5. [**Live dashboard BACKEND (Python)**](https://github.com/MadsJC/Bolig-site-analyse/tree/master/Bolig_dashboard_live){:target="_blank"}
 
 
-## Summary findings
-
-<img src="https://i.imgur.com/9Kcj2uU.png" width="500" height="250">
-
-<img src="https://i.imgur.com/59Kexti.png" width="500" height="250">
-
-<img src="https://i.imgur.com/UKbmXcn.png" width="500" height="250">
-
-<img src="https://i.imgur.com/yqPbRAR.png" width="500" height="250">
-
-<img src="https://i.imgur.com/mztnI7i.png" width="500" height="250">
-
-<img src="https://i.imgur.com/40RF75r.png" width="500" height="250">
-
-<iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
-        style="overflow:hidden;" src="https://www.screencast.com/users/mc3465/folders/Capture/media/c5e605e9-b275-4a2b-87e8-b87c9ad676b0/embed" height="250" width="500" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-
-
 ## Libraries brugt
 
 ###### Generelt
