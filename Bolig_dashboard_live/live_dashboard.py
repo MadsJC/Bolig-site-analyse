@@ -21,7 +21,7 @@ from datetime import timedelta
 
 ########
 # Universal lists
-color_maps = {'Lejlighed': '#264653', 'Rækkehus': '#2a9d8f',
+color_maps = {'Lejlighed': '#686860', 'Rækkehus': '#2a9d8f',
               'Villa': '#e9c46a', 'Værelse': '#e76f51'}
 
 
@@ -134,10 +134,9 @@ def app_layout():
             ),
         ], id="modal", size='l', centered=True),
 
-    ], style={'backgroundColor': '#b1b5b5', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
+    ], style={'backgroundColor': '#cacece', 'padding-left': '20px', 'padding-right': '20px', 'padding-top': '10px', 'padding-bottom': '10px'})
 
-#C4CFD4
-#b1b5b5
+
 app.layout = app_layout
 
 
@@ -414,14 +413,16 @@ def graph_row(n, bolig_type_value, by_value):
 ########################################
 # table_row CALL BACK
 ########################################
+
+
 @ app.callback(Output('table_row', 'children'),
                [Input('interval-component', 'n_intervals'),
                 Input('bolig_type_value', 'value'),
                 Input('by_value', 'value')])
 def info_table(n, bolig_type_value, by_value):
     df = get_data_file.get_data(n, bolig_type_value, by_value)
-    column_rename_dict = {'titel':'Titel', 'adresse':'Adresse', 'boligtype':'Boligtype', 
-                            'månedlig_leje':'Månedlig leje', 'image_count':'Antal billeder','kvadratmeter':'Kvadratmeter'}
+    column_rename_dict = {'titel': 'Titel', 'adresse': 'Adresse', 'boligtype': 'Boligtype',
+                          'månedlig_leje': 'Månedlig leje', 'image_count': 'Antal billeder', 'kvadratmeter': 'Kvadratmeter'}
 
     df = df.rename(columns=column_rename_dict)
 
@@ -430,11 +431,11 @@ def info_table(n, bolig_type_value, by_value):
     # Latest 5 entities
     df_latest_five = df.tail(5)
 
-    df_latest_five.sort_values('oprettelsesdato', ascending=False, inplace=True)
+    df_latest_five.sort_values(
+        'oprettelsesdato', ascending=False, inplace=True)
 
     df_latest_five = df_latest_five[['Titel', 'Adresse', 'Boligtype',
-                         'Månedlig leje', 'Antal billeder', 'Kvadratmeter']]
-
+                                     'Månedlig leje', 'Antal billeder', 'Kvadratmeter']]
 
     # Most expensive entity
     dyreste_bolig = df_today[df_today['Månedlig leje']
@@ -463,34 +464,37 @@ def info_table(n, bolig_type_value, by_value):
                 dbc.CardBody([
                     dbc.Row([
                         html.H3(['Seneste 5 boliger oprettet'],
-                                style={'font-weight': 'bold', 'padding-left':'15px'}),
+                                style={'font-weight': 'bold', 'padding-left': '15px'}),
                     ]),
                     dbc.Row([
                         dbc.Col([
-                        dash_table.DataTable(
-                        data=df_latest_five.to_dict('records'),
-                        columns=[{'name': i, 'id': i} for i in df_latest_five.columns],
-                        style_data_conditional=(
-                            datatable.data_bars(df_latest_five, 'Månedlig leje') + 
-                            datatable.data_bars(df_latest_five, 'Antal billeder') + 
-                            datatable.data_bars(df_latest_five, 'Kvadratmeter')
-                        ),
-                        style_header={'textAlign': 'left', 'fontWeight': 'bold', 'font-family':'Open Sans'},
-                        style_table={'overflowX': 'auto'},
-                        style_cell_conditional=[
-                                        {'if': {'column_id': c},
-                                            'textAlign': 'right'
-                                        } for c in ['Månedlig leje', 'Antal billeder', 'Kvadratmeter']],
-                        style_cell={
-                            'font-family':'Open Sans',
-                            'font-size':'12px',
-                            'textAlign': 'left',
-                            'overflow': 'hidden',
-                            'textOverflow': 'ellipsis',
-                            'width': 'auto'},
-                        css=[{'selector': '.row', 'rule': 'margin: 0'}]
-                    )], width=12)
-                        ])
+                            dash_table.DataTable(
+                                data=df_latest_five.to_dict('records'),
+                                columns=[{'name': i, 'id': i}
+                                         for i in df_latest_five.columns],
+                                style_data_conditional=(
+                                    datatable.data_bars(df_latest_five, 'Månedlig leje') +
+                                    datatable.data_bars(df_latest_five, 'Antal billeder') +
+                                    datatable.data_bars(
+                                        df_latest_five, 'Kvadratmeter')
+                                ),
+                                style_header={
+                                    'textAlign': 'left', 'fontWeight': 'bold', 'font-family': 'Open Sans'},
+                                style_table={'overflowX': 'auto'},
+                                style_cell_conditional=[
+                                    {'if': {'column_id': c},
+                                     'textAlign': 'right'
+                                     } for c in ['Månedlig leje', 'Antal billeder', 'Kvadratmeter']],
+                                style_cell={
+                                    'font-family': 'Open Sans',
+                                    'font-size': '12px',
+                                    'textAlign': 'left',
+                                    'overflow': 'hidden',
+                                    'textOverflow': 'ellipsis',
+                                    'width': 'auto'},
+                                css=[{'selector': '.row', 'rule': 'margin: 0'}]
+                            )], width=12)
+                    ])
                 ])
             ]),
         ], width=6),

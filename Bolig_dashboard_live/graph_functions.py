@@ -4,10 +4,11 @@ import pandas as pd
 import dash_core_components as dcc
 from datetime import timedelta
 
-
 ########################################
 # total_timeseries function
 ########################################
+
+
 def total_timeseries(df, color_maps):
     df_grouped = df.groupby(['boligtype', 'oprettelsesdato'],
                             as_index=False)['ids'].count()
@@ -24,7 +25,6 @@ def total_timeseries(df, color_maps):
                        == i]['oprettelsesdato']
         y = df_grouped[df_grouped['boligtype'] == i]['ids']
         traces.append(go.Bar(x=x, y=y, name=i, marker_color=color_maps[i],
-                             # marker_line_color='rgb(8,48,107)',
                              marker_line_width=0.6, opacity=0.7))
 
     traces.append(go.Scatter(x=df_grouped_mean['oprettelsesdato'], y=df_grouped_mean['ids'], name='Mean',
@@ -125,7 +125,7 @@ def bar_boligtype(df, color_maps):
                     showgrid=False,
                     zeroline=False,
                     showticklabels=True,
-                    nticks=20),
+                    nticks=400),
                 autosize=True,
                 barmode='stack',
                 showlegend=False,
@@ -139,37 +139,46 @@ def bar_boligtype(df, color_maps):
 
 
 def scatter_månedlig_leje_kvadratmeter(df, color_maps):
-    df_grouped = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
+    dff = df[df['oprettelsesdato'] == df['oprettelsesdato'].max()]
 
-    traces = []
+    dff['size_col'] = 0.5
 
-    for i in df['boligtype'].unique():
-        x = df_grouped[df_grouped['boligtype']
-                       == i]['kvadratmeter']
-        y = df_grouped[df_grouped['boligtype'] == i]['månedlig_leje']
-        traces.append(go.Scatter(x=x, y=y, name=i, marker_color=color_maps[i], marker_size=10,
-                                 opacity=0.70, mode='markers'))
+    fig = px.scatter(dff, x='kvadratmeter', y='månedlig_leje',
+                     trendline='ols',
+                     opacity=0.70,
+                     color='boligtype', color_discrete_map=color_maps
+                     ).for_each_trace(lambda t: t.update(name=t.name.split("=")[1]))
 
-    return {'data': traces,
-            'layout': dict(
-                yaxis=dict(
-                    showgrid=True,
-                    zeroline=False,
-                    title='Månedlig leje (dkk)',
-                    showticklabels=True),
-                xaxis=dict(
-                    showgrid=True,
-                    zeroline=False,
-                    showticklabels=True,
-                    title='Kvadratmeter',
-                    nticks=20),
-                showlegend=True,
-                autosize=True,
-                height=380,
-                transition={
-                    'duration': 500,
-                    'easing': 'cubic-in-out'},
-                margin={'l': 50, 'r': 1, 't': 5, 'b': 40})}
+    fig.update_layout(dict(
+        yaxis=dict(
+            showgrid=True,
+            zeroline=False,
+            title='Månedlig leje (dkk)',
+            showticklabels=True),
+        xaxis=dict(
+            showgrid=True,
+            zeroline=False,
+            showticklabels=True,
+            title='Kvadratmeter',
+            nticks=20),
+        showlegend=True,
+        legend=dict(
+            x=0,
+            y=1,
+            traceorder='normal',
+            font=dict(
+                size=12,),
+        ),
+        plot_bgcolor='#EFF1F1',
+        autosize=True,
+        height=380,
+        transition={
+            'duration': 500,
+            'easing': 'cubic-in-out'},
+        margin=dict(l=0, r=0, t=0, b=0)))
+
+    return fig
+
 
 ########################################
 # map_today function
